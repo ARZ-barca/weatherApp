@@ -6,7 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1 class="header">
+        <img
+          class="header-logo"
+          src="images/weather-svgrepo-com.svg"
+          alt="Weather"
+          srcset=""
+        />
+        <span class="header-text">Weather App</span>
+      </h1>
+    </header>
+    <section class="search-section section">
+      <form action="" class="search-form" novalidate>
+        <input type="text" placeholder="search city" required />
+        <div class="error"></div>
+        <button>
+          <span class="button-text">search</span
+          ><img
+            class="search-icon"
+            src="images/search-svgrepo-com.svg"
+            alt=""
+          />
+        </button>
+      </form>
+    </section>
+    <section class="current-weather-section section">
+      <div class="current-weather">
+        <div class="current-date">
+          <div class="place"></div>
+          <div class="date"></div>
+          <div class="time"></div>
+        </div>
+        <div class="weather"></div>
+        <div class="temp"></div>
+        <div class="wind-sun"></div>
+      </div>
+    </section>
+    <main></main>
+  </body>
 </html>
