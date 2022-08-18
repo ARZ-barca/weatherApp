@@ -7,6 +7,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/e2618f5030.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
@@ -20,6 +24,7 @@
         <span class="header-text">Weather App</span>
       </h1>
     </header>
+
     <section class="search-section section">
       <form action="" class="search-form" novalidate>
         <input type="text" placeholder="search city" required />
@@ -34,18 +39,27 @@
         </button>
       </form>
     </section>
-    <section class="current-weather-section section">
-      <div class="current-weather">
-        <div class="current-date">
-          <div class="place"></div>
-          <div class="date"></div>
-          <div class="time"></div>
+    <main>
+      <section class="current-weather-section section">
+        <div class="current-weather">
+          <div class="current-date">
+            <div class="place"></div>
+            <div class="date"></div>
+            <div class="time"></div>
+          </div>
+          <div class="weather-description"></div>
+          <div class="weather-icon"><img src="" alt="weather gif" /></div>
+
+          <div class="temp"></div>
+          <div class="feels"></div>
+
+          <div class="wind"></div>
+          <div class="humidity"></div>
+
+          <div class="sunrise"></div>
+          <div class="sunset"></div>
         </div>
-        <div class="weather"></div>
-        <div class="temp"></div>
-        <div class="wind-sun"></div>
-      </div>
-    </section>
-    <main></main>
+      </section>
+    </main>
   </body>
 </html>
