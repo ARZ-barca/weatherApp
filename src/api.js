@@ -13,13 +13,13 @@ async function getGeoCode(city) {
 // gets weather data with lat and lon of geoData returned by getGeoCode(city)
 async function getWeatherData(lat, lon) {
   let currentData = fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`,
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`,
     { mode: "cors" }
   ).then((response) => {
     return response.json();
   });
   let fiveDayData = fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`,
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`,
     { mode: "cors" }
   ).then((response) => {
     return response.json();
@@ -28,5 +28,17 @@ async function getWeatherData(lat, lon) {
   let weatherData = await Promise.all([currentData, fiveDayData]);
   return weatherData;
 }
+
+// async function getWeatherGif(weather) {
+//   let response = await fetch(
+//     `https://api.giphy.com/v1/gifs/translate?api_key=y7if3r46jl5Nogmlu3EZod6lo4k13C9F&s=${weather}`,
+//     {
+//       mode: "cors",
+//     }
+//   );
+//   let gifData = await response.json();
+//   console.log(gifData);
+//   return gifData;
+// }
 
 export { getGeoCode, getWeatherData };
