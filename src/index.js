@@ -1,4 +1,7 @@
 import { searchByCity } from "./search";
+import changeCurrentTemp, { CtoF, CtoK, getCurrentTempMode } from "./temp";
+
+const currentWeatherDom = document.querySelector(".current-weather");
 
 const form = document.querySelector(".search-form");
 const input = document.querySelector(".search-form input");
@@ -8,7 +11,14 @@ const searchIcon = document.querySelector(".search-icon");
 const loadUrl = "images/Spin-0.8s-207px.svg";
 const searchUrl = "images/search-svgrepo-com.svg";
 
-const weatherGif = document.querySelector(".current-weather .weather-icon img");
+const weatherIcon = document.querySelector(
+  ".current-weather .weather-icon img"
+);
+
+const cMode = document.querySelector(".current-weather .c-mode");
+const fMode = document.querySelector(".current-weather .f-mode");
+const kMode = document.querySelector(".current-weather .k-mode");
+const cover = document.querySelector(".current-weather .cover");
 
 // shows an error message in case of invalid city name or a network error
 function setError(errorMessage) {
@@ -36,8 +46,9 @@ form.addEventListener("submit", function (e) {
         setError("nework error.");
       } else {
         console.log(result);
-        weatherGif.src = `http://openweathermap.org/img/wn/${result[0].weather[0].icon}@2x.png`;
+        weatherIcon.src = `http://openweathermap.org/img/wn/${result[0].weather[0].icon}@2x.png`;
         populateCurrentWeather(result[0]);
+        currentWeatherDom.classList.add("show");
       }
     });
   } else {
@@ -53,8 +64,19 @@ function populateCurrentWeather(result) {
   let city = result.name;
   let date = new Date(result.dt * 1000);
   let weatherDescription = result.weather[0].description;
-  let temp = result.main.temp;
-  let feelsLike = result.main.feels_like;
+  let temp;
+  let feelsLike;
+  if (getCurrentTempMode() === "C") {
+    temp = result.main.temp;
+    feelsLike = result.main.feels_like;
+  } else if (getCurrentTempMode() === "F") {
+    temp = CtoF(result.main.temp);
+    feelsLike = CtoF(result.main.feels_like);
+  } else if (getCurrentTempMode() === "K") {
+    temp = CtoK(result.main.temp);
+    feelsLike = CtoK(result.main.feels_like);
+  }
+
   let wind = result.wind.speed;
   let humidity = result.main.humidity;
   let sunrise = new Date(result.sys.sunrise * 1000);
@@ -85,8 +107,9 @@ function populateCurrentWeather(result) {
 
   weatherDescriptionDom.textContent = `Weather: ${weatherDescription}`;
 
-  tempDom.textContent = `Temperature: ${temp}°C`;
-  feelsDom.textContent = `Feels like: ${feelsLike}°C`;
+  tempDom.innerHTML = `Temperature: <span class="temp-number">${temp}</span>°<span class="temp-symbol">${getCurrentTempMode()}</span>`;
+  feelsDom.innerHTML = `Feels like: <span class="feels-number">${feelsLike}</span>°<span class="feels-symbol">${getCurrentTempMode()}</span>`;
+
   windDom.textContent = `Wind speed: ${wind}m/s`;
   humidityDom.textContent = `Humidity: ${humidity}%`;
 
@@ -106,3 +129,34 @@ function twoDigits(number) {
     return number;
   }
 }
+
+cMode.addEventListener("click", function () {
+  if (getCurrentTempMode() !== "C") {
+    changeCurrentTemp("C");
+    cover.classList.remove("on-f");
+    cover.classList.remove("on-k");
+    cover.classList.add("on-c");
+  }
+});
+
+fMode.addEventListener("click", function () {
+  if (getCurrentTempMode() !== "F") {
+    changeCurrentTemp("F");
+    cover.classList.remove("on-c");
+    cover.classList.remove("on-k");
+    cover.classList.add("on-f");
+  }
+});
+
+kMode.addEventListener("click", function () {
+  if (getCurrentTempMode() !== "K") {
+    changeCurrentTemp("K");
+    cover.classList.remove("on-f");
+    cover.classList.remove("on-c");
+    cover.classList.add("on-k");
+  }
+});
+
+cover.addEventListener("transitionend", function () {
+  this.textContent = getCurrentTempMode();
+});

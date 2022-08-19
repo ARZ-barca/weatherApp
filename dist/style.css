@@ -21,6 +21,9 @@ body {
   background-color: var(--light);
 }
 
+.page {
+  min-height: 100vh;
+}
 /*********
             header 
 **********/
@@ -164,22 +167,62 @@ body {
   width: 100px;
   height: 100px;
 }
-/*
-.current-weather .weather {
+
+.current-weather .change-temp {
   display: flex;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 100;
+  background-color: var(--light);
+  padding: 0 5px;
+  border-radius: 15px;
+  position: relative;
 }
 
-.current-weather .weather-icon {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.current-weather .cover {
+  position: absolute;
+  background-color: var(--dark-green);
+  left: 0;
+  top: 0;
+  width: 35px;
+  height: 100%;
+  border-radius: 15px;
+  transition: all ease-in-out 300ms;
+  color: var(--light);
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
 }
 
-.current-weather .weather-container {
-  flex: 1;
+.mode {
+  height: 30px;
+  cursor: pointer;
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+}
 
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-} */
+.current-weather .on-c {
+  transform: translateX(0);
+}
+
+.current-weather .on-f {
+  transform: translateX(44px);
+}
+
+.current-weather .on-k {
+  transform: translateX(85px);
+}
+
+/*********
+            first load
+**********/
+
+.current-weather {
+  transform: rotateX(90deg);
+  transition: all ease-in-out 300ms;
+}
+
+.current-weather.show {
+  transform: rotateX(0);
+}

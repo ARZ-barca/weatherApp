@@ -13,53 +13,57 @@
     ></script>
   </head>
   <body>
-    <header>
-      <h1 class="header">
-        <img
-          class="header-logo"
-          src="images/weather-svgrepo-com.svg"
-          alt="Weather"
-          srcset=""
-        />
-        <span class="header-text">Weather App</span>
-      </h1>
-    </header>
-
-    <section class="search-section section">
-      <form action="" class="search-form" novalidate>
-        <input type="text" placeholder="search city" required />
-        <div class="error"></div>
-        <button>
-          <span class="button-text">search</span
-          ><img
-            class="search-icon"
-            src="images/search-svgrepo-com.svg"
-            alt=""
+    <div class="page">
+      <header>
+        <h1 class="header">
+          <img
+            class="header-logo"
+            src="images/weather-svgrepo-com.svg"
+            alt="Weather"
+            srcset=""
           />
-        </button>
-      </form>
-    </section>
-    <main>
-      <section class="current-weather-section section">
-        <div class="current-weather">
-          <div class="current-date">
-            <div class="place"></div>
-            <div class="date"></div>
-            <div class="time"></div>
-          </div>
-          <div class="weather-description"></div>
-          <div class="weather-icon"><img src="" alt="weather gif" /></div>
-
-          <div class="temp"></div>
-          <div class="feels"></div>
-
-          <div class="wind"></div>
-          <div class="humidity"></div>
-
-          <div class="sunrise"></div>
-          <div class="sunset"></div>
-        </div>
+          <span class="header-text">Weather App</span>
+        </h1>
+      </header>
+      <section class="search-section section">
+        <form action="" class="search-form" novalidate>
+          <input type="text" placeholder="search city" required />
+          <div class="error"></div>
+          <button>
+            <span class="button-text">search</span
+            ><img
+              class="search-icon"
+              src="images/search-svgrepo-com.svg"
+              alt=""
+            />
+          </button>
+        </form>
       </section>
-    </main>
+      <main>
+        <section class="current-weather-section section">
+          <div class="current-weather">
+            <div class="current-date">
+              <div class="place"></div>
+              <div class="date"></div>
+              <div class="time"></div>
+            </div>
+            <div class="weather-description"></div>
+            <div class="weather-icon"><img src="" alt="weather gif" /></div>
+            <div class="temp"></div>
+            <div class="feels"></div>
+            <div class="change-temp">
+              <div class="c-mode mode selected">C</div>
+              <div class="f-mode mode">F</div>
+              <div class="k-mode mode">K</div>
+              <div class="cover on-c"></div>
+            </div>
+            <div class="wind"></div>
+            <div class="humidity"></div>
+            <div class="sunrise"></div>
+            <div class="sunset"></div>
+          </div>
+        </section>
+      </main>
+    </div>
   </body>
 </html>

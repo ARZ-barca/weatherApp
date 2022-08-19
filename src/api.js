@@ -29,16 +29,4 @@ async function getWeatherData(lat, lon) {
   return weatherData;
 }
 
-// async function getWeatherGif(weather) {
-//   let response = await fetch(
-//     `https://api.giphy.com/v1/gifs/translate?api_key=y7if3r46jl5Nogmlu3EZod6lo4k13C9F&s=${weather}`,
-//     {
-//       mode: "cors",
-//     }
-//   );
-//   let gifData = await response.json();
-//   console.log(gifData);
-//   return gifData;
-// }
-
 export { getGeoCode, getWeatherData };
