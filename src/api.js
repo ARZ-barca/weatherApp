@@ -13,13 +13,13 @@ async function getGeoCode(city) {
 // gets weather data with lat and lon of geoData returned by getGeoCode(city)
 async function getWeatherData(lat, lon) {
   let currentData = fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`,
+    `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`,
     { mode: "cors" }
   ).then((response) => {
     return response.json();
   });
   let fiveDayData = fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`,
+    `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`,
     { mode: "cors" }
   ).then((response) => {
     return response.json();
