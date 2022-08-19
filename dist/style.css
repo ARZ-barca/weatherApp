@@ -19,10 +19,14 @@ html {
 
 body {
   background-color: var(--light);
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Space Mono", monospace;
 }
 
 .page {
   min-height: 100vh;
+  padding-bottom: 80px;
+  position: relative;
 }
 /*********
             header 
@@ -36,6 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  font-family: "Space Mono", monospace;
 }
 
 .header-logo {
@@ -77,6 +82,7 @@ body {
   padding: 10px;
   font-size: 1rem;
   color: var(--dark);
+  font-family: "Roboto", sans-serif;
 }
 
 .search-form input.invalid {
@@ -92,6 +98,7 @@ body {
   border-radius: 5px;
   color: var(--light);
   font-size: 1rem;
+  font-family: "Roboto", sans-serif;
 }
 
 .search-form button:hover {
@@ -128,7 +135,7 @@ body {
 **********/
 .current-weather {
   max-width: 400px;
-  background-color: var(--light-blue);
+  background-color: rgb(203, 241, 240);
   color: var(--dark);
 
   margin: auto;
@@ -153,6 +160,7 @@ body {
   font-size: 1rem;
   padding-bottom: 5px;
   font-weight: 200;
+  font-family: "Space Mono", monospace;
 }
 
 .current-weather .place {
@@ -164,8 +172,8 @@ body {
 }
 
 .current-weather .weather-icon img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .current-weather .change-temp {
@@ -220,9 +228,61 @@ body {
 
 .current-weather {
   transform: rotateX(90deg);
-  transition: all ease-in-out 300ms;
+  transition: transform ease-in-out 300ms;
 }
 
 .current-weather.show {
   transform: rotateX(0);
+  box-shadow: 0 0 10px 1px var(--light-blue);
+}
+
+/*********
+            for small screens
+**********/
+
+@media only screen and (max-width: 400px) {
+  .header-text {
+    font-size: 1.5rem;
+  }
+  .current-weather {
+    font-size: 1rem;
+  }
+  .current-weather .current-date {
+    font-size: 0.8rem;
+  }
+}
+
+/*********
+            foooter
+**********/
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: fit-content;
+  height: 50px;
+  text-decoration: none;
+}
+
+footer a span {
+  padding-right: 10px;
+  font-family: "Roboto", sans-serif;
+  color: var(--dark);
+}
+
+footer a img {
+  width: 40px;
+  transition: transform ease-in-out 300ms;
+}
+
+footer a:hover img {
+  transform: scale(1.1);
 }

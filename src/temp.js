@@ -1,3 +1,8 @@
+/*
+  functions for coverting different modes of tempreture
+*/
+
+// to track the current mode
 let currentTempMode = "C";
 
 function setCurrentTempMode(newMode) {
@@ -8,6 +13,7 @@ function getCurrentTempMode() {
   return currentTempMode;
 }
 
+// changes the symbol and number of temp and feels
 function changeCurrentTemp(newSymbol) {
   let currentTempNumber = document.querySelector(
     ".current-weather .temp-number"
@@ -55,6 +61,8 @@ function changeCurrentTemp(newSymbol) {
   }
 }
 
+// function for coverting the numbers with proper math
+
 function CtoF(celsius) {
   let fahrenheit = (Number(celsius) * 9) / 5 + 32;
   return roundTo2Decimals(fahrenheit);
@@ -80,6 +88,7 @@ function KtoF(kelvin) {
   return roundTo2Decimals(fahrenheit);
 }
 
+// for better presentation
 function roundTo2Decimals(num) {
   return Math.round((num + Number.EPSILON) * 100) / 100;
 }

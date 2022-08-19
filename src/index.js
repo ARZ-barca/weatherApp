@@ -45,7 +45,6 @@ form.addEventListener("submit", function (e) {
       } else if (result === null) {
         setError("nework error.");
       } else {
-        console.log(result);
         weatherIcon.src = `http://openweathermap.org/img/wn/${result[0].weather[0].icon}@2x.png`;
         populateCurrentWeather(result[0]);
         currentWeatherDom.classList.add("show");
@@ -56,9 +55,10 @@ form.addEventListener("submit", function (e) {
   }
   setTimeout(() => {
     searchIcon.src = searchUrl;
-  }, 300);
+  }, 500);
 });
 
+// responsible for filling the current weather card
 function populateCurrentWeather(result) {
   let country = result.sys.country;
   let city = result.name;
@@ -129,6 +129,8 @@ function twoDigits(number) {
     return number;
   }
 }
+
+// for changing the weather mode
 
 cMode.addEventListener("click", function () {
   if (getCurrentTempMode() !== "C") {
