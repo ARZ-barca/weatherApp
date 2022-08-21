@@ -45,7 +45,7 @@ form.addEventListener("submit", function (e) {
       } else if (result === null) {
         setError("nework error.");
       } else {
-        weatherIcon.src = `http://openweathermap.org/img/wn/${result[0].weather[0].icon}@2x.png`;
+        weatherIcon.src = `https://openweathermap.org/img/wn/${result[0].weather[0].icon}@2x.png`;
         populateCurrentWeather(result[0]);
         currentWeatherDom.classList.add("show");
       }
