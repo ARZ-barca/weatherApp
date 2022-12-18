@@ -255,7 +255,7 @@ body {
 /*********
             foooter
 **********/
-
+/* 
 footer {
   position: absolute;
   bottom: 0;
@@ -285,4 +285,4 @@ footer a img {
 
 footer a:hover img {
   transform: scale(1.1);
-}
+} */
