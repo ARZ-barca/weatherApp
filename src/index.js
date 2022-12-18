@@ -49,13 +49,11 @@ form.addEventListener("submit", function (e) {
         populateCurrentWeather(result[0]);
         currentWeatherDom.classList.add("show");
       }
+      searchIcon.src = searchUrl;
     });
   } else {
     setError("city name is required.");
   }
-  setTimeout(() => {
-    searchIcon.src = searchUrl;
-  }, 500);
 });
 
 // responsible for filling the current weather card
